@@ -27,7 +27,6 @@
     <meta name="author" content="ThemePixels">
 
     <title>Bracket Responsive Bootstrap 4 Admin Template</title>
-
     <!-- vendor css -->
     <link href="{{asset('lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('lib/Ionicons/css/ionicons.css')}}" rel="stylesheet">
@@ -35,6 +34,12 @@
     <link href="{{asset('lib/jquery-switchbutton/jquery.switchButton.css')}}" rel="stylesheet">
     <link href="{{asset('lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
     <link href="{{asset('lib/chartist/chartist.css')}}" rel="stylesheet">
-
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="../css/bracket.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+
+
+    
+

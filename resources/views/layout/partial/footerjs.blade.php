@@ -11,6 +11,9 @@
 <script src="{{asset('lib/d3/d3.js')}}"></script>
 <script src="{{asset('lib/rickshaw/rickshaw.min.js')}}"></script>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script src="{{asset('js/bracket.js')}}"></script>
 <script src="{{asset('js/ResizeSensor.js')}}"></script>
