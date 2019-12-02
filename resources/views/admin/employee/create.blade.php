@@ -1,6 +1,6 @@
 @extends('layout/layout')
 @section('content')
-<div class="container">
+<div class="container-fluid  w-25 h-50">
 
     <form method="post" action="{{route('employee.store')}}">
     @csrf  

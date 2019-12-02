@@ -629,6 +629,13 @@
 
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="br-mainpanel">
+    <div class="flash-message" style="width: 300px; margin-left: auto; margin-right: auto;">
+      @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+        @if(Session::has('alert-' . $msg))
+        <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</p>
+        @endif
+      @endforeach
+    </div>
     @yield('content')
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->

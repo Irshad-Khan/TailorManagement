@@ -28,27 +28,16 @@
                       <th>Action</th>
                    </thead>
     <tbody>
-    @foreach($employees as $key=>$value)
+    
     <tr>
-    <td>{{$key + 1}}</td>
-    <td>{{$value->name}}</td>
-    <td>{{$value->address}}</td>
-    <td>{{$value->email}}</td>
-    <td>{{$value->phone}}</td>
-    <td>{{$value->cnic}}</td>
-    <td>
-    <a href="{{route('employee.show',['id' => $value->id])}}"  class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-eye-open"></span>
-        </a>
-        <a href="{{route('employee.edit',['id' => $value->id])}}" class="btn btn-primary btn-xs" >
-            <span class="glyphicon glyphicon-pencil"></span>
-        </a>
-        <a href="{{route('employee.delete',['id' => $value->id])}}" onClick='return deletionConfirm()' class="btn btn-danger btn-xs">
-            <span class="glyphicon glyphicon-trash"></span>
-        </a>
-    </td>
+    <td>{{$employees->id}}</td>
+    <td>{{$employees->name}}</td>
+    <td>{{$employees->address}}</td>
+    <td>{{$employees->email}}</td>
+    <td>{{$employees->phone}}</td>
+    <td>{{$employees->cnic}}</td>
     </tr>      
-    @endforeach
+    
         </tbody>
         
 </table>            

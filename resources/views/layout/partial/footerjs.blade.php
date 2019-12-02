@@ -1,4 +1,9 @@
 <script src="{{asset('lib/jquery/jquery.js')}}"></script>
+<script>
+  $(document).ready(function(){
+    $(".flash-message").delay(2000).slideUp(300);
+  });
+</script>
 <script src="{{asset('lib/popper.js/popper.js')}}"></script>
 <script src="{{asset('lib/bootstrap/bootstrap.js')}}"></script>
 <script src="{{asset('lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js')}}"></script>

@@ -21,11 +21,15 @@ Route::get('/dashboard', function () {
     return view('layout/layout');
 });
 
+
 Route::get('employee/index','EmployeeController@index')->name('employee.index');
 Route::get('employee/create','EmployeeController@insert')->name('employee.create');
 Route::post('employee/store','EmployeeController@store')->name('employee.store');
-Route::get('employee/edit/{id}','EmployeeController@edit')->name('employee.edit');
+Route::get('employee/edit/{id}','EmployeeController@editProduct')->name('employee.edit');
+Route::get('employee/show/{id}','EmployeeController@show')->name('employee.show');
+
 Route::get('employee/delete/{id}','EmployeeController@destroy')->name('employee.delete');
+Route::post('employee/update/{id}','EmployeeController@update')->name('employee.update');
 
 Route::get('/dashboard', function(){
     return view('admin.dashboard');

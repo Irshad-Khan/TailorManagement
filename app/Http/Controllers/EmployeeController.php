@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+// use session;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-        return view('admin.employee.index', compact('employees'));
+        return view('admin.employee.index', ['employees'=>$employees]);
     }
 
     /**
@@ -44,6 +44,7 @@ class EmployeeController extends Controller
         $employee->email=$request->email;
         $employee->cnic=$request->cnic;
         $employee->save();
+        \Session::flash('alert-success', 'Employee Record Saved Successfully');
         return redirect()->route('employee.index');
       
         
@@ -55,9 +56,11 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
-        //
+        $employees=Employee::findOrFail($id);
+        
+        return view('admin.employee.show',compact('employees'));
     }
 
     /**
@@ -66,9 +69,10 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editProduct($id)
     {
-        dd($id);
+        $employees = Employee::findOrFail($id);
+        return view('admin.employee.edit',compact('employees'));
     }
 
     /**
@@ -78,10 +82,19 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $employee = Employee::findOrFail($id);
+        $employee->name = $request->input('name');
+        $employee->address = $request->input('address');
+        $employee->email = $request->input('email');
+        $employee->phone = $request->input('phone');
+        $employee->cnic = $request->input('cnic');
+
+        $employee->save(); //persist the data
+        \Session::flash('alert-success', 'Employee Record Updated Successfully');
+        return redirect()->route('employee.index');   
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -89,8 +102,14 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee, $id)
+    public function destroy(Employee $employees, $id)
     {
-        dd($id);
-    }
+        if($id != 0){
+            // Delete
+            $employees=Employee::find($id);
+            $employees->delete();
+           
+            \Session::flash('alert-danger', 'Employee Record Deleted Successfully');
+            return redirect()->back();
+    }}
 }
